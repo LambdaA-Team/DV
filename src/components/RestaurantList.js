@@ -9,18 +9,23 @@ class RestaurantList extends Component {
         <ul className="list-group">
           {restaurants.map(function(restaurant) {
             return (
-              <li key={restaurant.id} className="list-group-item">
-                <a href={restaurant.Url}>
+              <ul key={restaurant.id} className="list-group-item">
+                <a href={restaurant.BusinessUrl}>
                   <h4 className="list-group-item-heading">
                     {restaurant.Title}
                   </h4>
                 </a>
                 <p className="list-group-item-text">
-                  {restaurant.Address} {restaurant.City} {restaurant.State}{' '}
-                  {restaurant.Telephone}
+                  <a href={restaurant.Url}>
+                    {restaurant.Address} {restaurant.City}, {restaurant.State}{' '}
+                  </a>
+                  <br />
+                  {restaurant.Phone}
+                  <br />
+                  Distance: {restaurant.Distance}
+                  <br />
                 </p>
-                Distance: {restaurant.Distance} <br />
-              </li>
+              </ul>
             );
           })}
         </ul>
