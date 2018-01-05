@@ -8,29 +8,40 @@ class RestaurantContainer extends Component {
     super(props);
     this.state = {
       restaurants: [],
-      sort: 'ratings',
+      query: this.props.query,
       zipcode: 94080,
     };
     this.toggleSortDistance = this.toggleSortDistance.bind(this);
+    this.updateQuery = this.updateQuery.bind(this);
     this.updateZip = this.updateZip.bind(this);
     this.fetchRestaurants = this.fetchRestaurants.bind(this);
   }
-  fetchRestaurants(zipcode) {
+  fetchRestaurants(query, zipcode) {
     let url =
       "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20local.search%20where%20zip%3D'" +
       zipcode +
-      "'%20and%20query%3D'Victim'&format=json&diagnostics=true&callback=";
+      "'%20and%20query%3D'" +
+      query +
+      "'&format=json&diagnostics=true&callback=";
     fetch(url)
       .then(checkStatus)
       .then(parseJSON)
       .then(
         function(data) {
           let results = data.query.results.Result;
-          results = results.sort((a, b) => {
-            if (!isFinite(a.Distance - b.Distance))
-              return !isFinite(a.Distance) ? 1 : -1;
-            else return a.Distance - b.Distance;
-          });
+          if (this.state.sort === 'ratings') {
+            results = results.sort((a, b) => {
+              if (!isFinite(a.Rating.AverageRating - b.Rating.AverageRating))
+                return !isFinite(a.Rating.AverageRating) ? 1 : -1;
+              else return b.Rating.AverageRating - a.Rating.AverageRating;
+            });
+          } else {
+            results = results.sort((a, b) => {
+              if (!isFinite(a.Distance - b.Distance))
+                return !isFinite(a.Distance) ? 1 : -1;
+              else return a.Distance - b.Distance;
+            });
+          }
           this.setState({
             restaurants: results,
           });
@@ -41,11 +52,15 @@ class RestaurantContainer extends Component {
       });
   }
   componentDidMount() {
-    this.fetchRestaurants(this.state.zipcode);
+    this.fetchRestaurants(this.state.query, this.state.zipcode);
+  }
+  updateQuery(query) {
+    this.setState({ query: query });
+    this.fetchRestaurants(query, this.state.zipcode);
   }
   updateZip(zip) {
     this.setState({ zip: zip });
-    this.fetchRestaurants(zip);
+    this.fetchRestaurants(this.state.query, zip);
   }
   toggleSortDistance(e) {
     e.preventDefault();
@@ -68,9 +83,7 @@ class RestaurantContainer extends Component {
         </div>
         <div className="col-sm-8 col-xs-12">
           <h3>Agencies Nearby:</h3>
-          <div className="row sort">
-            <RestaurantList restaurants={this.state.restaurants} />
-          </div>
+          <RestaurantList restaurants={this.state.restaurants} />
         </div>
       </div>
     );

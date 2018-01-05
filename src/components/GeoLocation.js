@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import { checkStatus, parseJSON } from '../utilities/index';
 
 class GeoLocation extends Component {
   constructor(props) {
@@ -8,7 +9,6 @@ class GeoLocation extends Component {
       latitude: '',
       longitude: '',
       zipcode: '',
-      message: 'Your location',
     };
     this.updatePosition = this.updatePosition.bind(this);
     this.getLocation = this.getLocation.bind(this);
@@ -33,6 +33,8 @@ class GeoLocation extends Component {
       long +
       '&sensor=false';
     fetch(url)
+      .then(checkStatus)
+      .then(parseJSON)
       .then(
         function(data) {
           var zipcode = data.results[0].address_components[7].short_name
@@ -79,6 +81,7 @@ class GeoLocation extends Component {
           <p>{this.state.zipcode ? 'Zipcode: ' + this.state.zipcode : ''}</p>
           <form onSubmit={this.handleQuerysubmit}>
             <div className="form-group">
+              <label htmlFor="exampleInputEmail1">Enter Zipcode: </label>
               <input
                 type="text"
                 value={this.state.zipcode}
@@ -86,7 +89,7 @@ class GeoLocation extends Component {
                 className="form-control"
                 id="query"
                 name="query"
-                placeholder="Your Zip Code.."
+                placeholder="Change Zipcode"
               />
             </div>
             <button type="submit" className="btn btn-default">
