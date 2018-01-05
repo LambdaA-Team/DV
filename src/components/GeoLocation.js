@@ -74,10 +74,6 @@ class GeoLocation extends Component {
       <div className="panel panel-default">
         <div className="panel-heading">{this.state.message}</div>
         <div className="panel-body">
-          <p>{this.state.latitude ? 'Latitude: ' + this.state.latitude : ''}</p>
-          <p>
-            {this.state.longitude ? 'Longitude: ' + this.state.longitude : ''}
-          </p>
           <p>{this.state.zipcode ? 'Zipcode: ' + this.state.zipcode : ''}</p>
           <form onSubmit={this.handleQuerysubmit}>
             <div className="form-group">
