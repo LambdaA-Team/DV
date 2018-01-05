@@ -16,9 +16,10 @@ class RestaurantList extends Component {
                   </h4>
                 </a>
                 <p className="list-group-item-text">
-                  {restaurant.Address} {restaurant.City} {restaurant.State}
+                  {restaurant.Address} {restaurant.City} {restaurant.State}{' '}
+                  {restaurant.Telephone}
                 </p>
-                Estimated Distance: {restaurant.Distance} Miles <br />
+                Distance: {restaurant.Distance} <br />
               </li>
             );
           })}
