@@ -87,7 +87,7 @@ class GeoLocation extends Component {
                 className="form-control"
                 id="query"
                 name="query"
-                placeholder="Change Zipcode"
+                placeholder="Zipcode"
               />
             </div>
             <button type="submit" className="btn btn-default">
