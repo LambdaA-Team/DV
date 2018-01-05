@@ -31,10 +31,15 @@
 
 .form-control {
   text-align: center;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .form-group {
+  font-size: 15px;
   margin: auto;
-  width: 120px;
+  width: 100px;
+}
+
+.button {
+  width: 100px;
 }
