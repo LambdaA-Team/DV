@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <link rel="stylesheet" href="index.css">
@@ -11,99 +11,70 @@
         <h1>Welcome</h1>
         <p>Log in as guest to remain anonymous or create account to access advanced features.</p>
     </div>
+<!-- Button to open the modal login form -->
+<button onclick="document.getElementById('id01').style.display='block'">Login</button>
 
-    <div class="form">
+<!-- The Modal for login -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" 
+class="close" title="Close Modal">&times;</span>
 
-        <ul class="tab-group">
-            <li class="tab active">
-                <a href="#signup">Sign Up</a>
-            </li>
-            <li class="tab">
-                <a href="#login">Log In</a>
-            </li>
-        </ul>
-
-        <div class="tab-content">
-            <div id="signup">
-                <h1>Sign Up for Free</h1>
-
-                <form action="/" method="post">
-
-                    <div class="top-row">
-                        <div class="field-wrap">
-                            <label>
-                                First Name
-                                <span class="req">*</span>
-                            </label>
-                            <input type="text" required autocomplete="off" />
-                        </div>
-
-                        <div class="field-wrap">
-                            <label>
-                                Last Name
-                                <span class="req">*</span>
-                            </label>
-                            <input type="text" required autocomplete="off" />
-                        </div>
-                    </div>
-
-                    <div class="field-wrap">
-                        <label>
-                            Email Address
-                            <span class="req">*</span>
-                        </label>
-                        <input type="email" required autocomplete="off" />
-                    </div>
-
-                    <div class="field-wrap">
-                        <label>
-                            Set A Password
-                            <span class="req">*</span>
-                        </label>
-                        <input type="password" required autocomplete="off" />
-                    </div>
-
-                    <button type="submit" class="button button-block" />Get Started</button>
-
-                </form>
-
-            </div>
-
-            <div id="login">
-                <h1>Welcome Back!</h1>
-
-                <form action="/" method="post">
-
-                    <div class="field-wrap">
-                        <label>
-                            Email Address
-                            <span class="req">*</span>
-                        </label>
-                        <input type="email" required autocomplete="off" />
-                    </div>
-
-                    <div class="field-wrap">
-                        <label>
-                            Password
-                            <span class="req">*</span>
-                        </label>
-                        <input type="password" required autocomplete="off" />
-                    </div>
-
-                    <p class="forgot">
-                        <a href="#">Forgot Password?</a>
-                    </p>
-
-                    <button class="button button-block" />Log In</button>
-
-                </form>
-
-            </div>
-
-        </div>
-        <!-- tab-content -->
-
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <img src="Will insert later" alt="Avatar" class="avatar">
     </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit">Login</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<!-- Button to open the sign up modal -->
+<button onclick="document.getElementById('id02').style.display='block'">Sign Up</button>
+
+<!-- The Modal (contains the Sign Up form) -->
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="container">
+      <label><b>First Name</b></label>
+      <input type="text" placeholder="Enter First Name" name="firstname" required>
+
+      <label><b>Last Name</b></label>
+      <input type="text" placeholder="Enter Last Name" name="lastname" required>
+
+      <label><b>Email Address</b></label>
+      <input type="text" placeholder="Enter Email Address" name="email" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label><b>Verify Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <input type="checkbox" checked="checked"> Remember me
+      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+    </form>  
+</div>
+</div>
+  </div>
     <!-- /form -->
 </body>
 
