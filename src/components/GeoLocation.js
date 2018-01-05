@@ -52,7 +52,7 @@ class GeoLocation extends Component {
   updatePosition(position) {
     this.getZipcode(position.coords.latitude, position.coords.longitude);
     var message = '';
-    message = 'Your location is:';
+    message = 'Current Location Selected';
     this.setState({
       message: message,
       latitude: position.coords.latitude,
@@ -72,9 +72,11 @@ class GeoLocation extends Component {
   render() {
     return (
       <div className="panel panel-default">
-        <div className="panel-heading">{this.state.message}</div>
         <div className="panel-body">
-          <p>{this.state.zipcode ? 'Zipcode: ' + this.state.zipcode : ''}</p>
+          <p>
+            {this.state.message}
+            {this.state.zipcode ? ': ' + this.state.zipcode : ''}
+          </p>
           <form onSubmit={this.handleQuerysubmit}>
             <div className="form-group">
               <label htmlFor="exampleInputEmail1">Enter Zipcode: </label>
