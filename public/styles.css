@@ -1,9 +1,10 @@
 .welcome {
-    padding-left: 20px;
-}
-
-.welcome1{
-    padding-left: 20px;
+    background-color: rgba(63, 13, 78, .7);
+    max-width: 50%;
+    margin: 10px auto;
+    color: rgb(255, 189, 189); 
+    padding: 5px 16px;
+    text-align: center;    
 }
 
 button {
