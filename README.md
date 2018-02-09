@@ -34,5 +34,5 @@ This app currently uses the following:
 
 ## Acknowledgments
 - React-Restaurant-Finder is an inspiration to this idea, thanks to @iruslani
-- Originally a winter hackathon idea at Lambda School with a team - Cole Phillips, Doug Taylor, Franz Fernando, Benjamin Campbell and JOohnathan Justinn
+- Originally a winter hackathon idea at Lambda School with a team - Cole Phillips, Doug Taylor, Franz Fernando, Benjamin Campbell and Johnathan Justinn
 
