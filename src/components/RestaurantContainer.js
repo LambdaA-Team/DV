@@ -10,7 +10,7 @@ class RestaurantContainer extends Component {
     this.state = {
       restaurants: [],
       query: this.props.query,
-      zipcode: 94080,
+      zipcode: 94080
     };
     this.updateQuery = this.updateQuery.bind(this);
     this.updateZip = this.updateZip.bind(this);
