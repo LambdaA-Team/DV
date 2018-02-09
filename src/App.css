@@ -8,9 +8,11 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  color: white;
+  background-color: rgba(63, 13, 78, .7);
+  max-width: 50%;
+  margin: 10px auto;
+  color: rgb(255, 189, 189); 
+  padding: 5px 16px;
 }
 
 .App-title {
@@ -31,7 +33,8 @@
 
 .form-control {
   text-align: center;
-  font-size: 15px;
+  font-size: 20px;
+  background-color: grey;
 }
 
 .form-group {
